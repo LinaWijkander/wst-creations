@@ -18,6 +18,9 @@ concurrency:
   group: 'pages'
   cancel-in-progress: true
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   # Single deploy job since we're just deploying
   deploy:
@@ -28,23 +31,26 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        
+
+      - name: Enable Corepack
+        run: corepack enable
+
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20.x'
-          cache: 'yarn'
-          
+          node-version: '24'
+          cache: 'pnpm'
+
       - name: Install dependencies
-        run: yarn --frozen-lockfile
+        run: pnpm install --frozen-lockfile
 
       #- name: run tests
        # run: |
-       #   yarn lint
-        #  yarn test
-        
+       #   pnpm lint
+        #  pnpm test
+
       - name: Build
-        run: yarn run build
+        run: pnpm run build
         
       - name: Setup Pages
         uses: actions/configure-pages@v4
