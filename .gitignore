@@ -129,12 +129,8 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-# JetBrains IDE
-.idea/**/workspace.xml
-.idea/**/tasks.xml
-.idea/**/usage.statistics.xml
-.idea/**/dictionaries
-.idea/**/shelf
+# JetBrains IDE (entire folder – local config, no need to push)
+.idea/
 
 # random
 .DS_Store

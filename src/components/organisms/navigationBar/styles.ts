@@ -34,16 +34,26 @@ export const StyledTitle = styled(StyledAnchor)`
   padding: 1rem;
 `
 
-export const StyledDropdown = styled.span`
+export const StyledDropdownWrapper = styled.div`
+  position: relative;
+  display: flex;
+  height: 100%;
+`
+
+export const StyledDropdown = styled.span<{ $isOpen?: boolean }>`
   color: inherit;
   text-decoration: none;
   height: 100%;
   display: flex;
   align-items: center;
   font-size: 1.2rem;
-  
+  cursor: pointer;
+
   &:hover {
-    cursor: pointer;
     background-color: var(--grey02);
   }
+
+  ${({ $isOpen }) => $isOpen && `
+    background-color: var(--grey02);
+  `}
 `

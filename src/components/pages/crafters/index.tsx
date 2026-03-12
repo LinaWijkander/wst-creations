@@ -1,19 +1,16 @@
 
-
-
-
 export const Crafters = () => {
 
-    interface FruitObject {
-        fruit: string;
-        quantity: number;
+    interface Crafter {
+        name: string;
+        creations: number;
     }
 
-    const fruitArray: FruitObject[] = [
-        { fruit: "apple", quantity: 10 },
-        { fruit: "banan", quantity: 5 },
-        { fruit: "orange", quantity: 8 },
-        { fruit: "banan", quantity: 12 },
+    const crafterArray: Crafter[] = [
+        { name: "Ztarz", creations: 10 },
+        { name: "Adrachn", creations: 20 },
+        { name: "Keyoke", creations: 5 },
+        { name: "Zukie", creations: 12 },
     ];
 
     return (
@@ -21,9 +18,9 @@ export const Crafters = () => {
             <h1>Crafters</h1>
             
             <div>
-                {fruitArray.map((item, index) => {
-                    if (item.fruit === "banan") {
-                        return <div key={index}>Fruit: {item.fruit}, Quantity: {item.quantity}</div>;
+                {crafterArray.map((item, index) => {
+                    if (item.name === "Adrachn") {
+                        return <div key={index}> {item.name}, Creations: {item.creations}</div>;
                     }
                     return null; // Alternatively, you can use 'filter()' before 'map()' to omit this check.
                 })}
