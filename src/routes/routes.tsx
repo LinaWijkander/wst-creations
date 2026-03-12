@@ -12,8 +12,6 @@ import About from "../components/pages/About";
 
 
 export const router = createBrowserRouter(
-  
-    
     [{
         path: "/",
         element: <App/>,
@@ -29,5 +27,6 @@ export const router = createBrowserRouter(
             {path: "/addCreation", element: <AddCreation/>},
         ]
     }
-    ]
+    ],
+    { basename: import.meta.env.BASE_URL.replace(/\/$/, '') }
 )
